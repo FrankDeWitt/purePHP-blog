@@ -1,0 +1,69 @@
+/* --- Sticky Footer --- */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.sticky-content {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -60px; 
+}
+.sticky-content:after {
+  content: "";
+  display: block;
+}
+.site-footer, .sticky-content:after {
+  height: 60px; 
+}
+.site-footer {
+  background-color: #f5f5f5;
+}
+
+/* --- Post --- */
+.post {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 5px rgba(0,0,0, .5);
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+.post .article .title {
+    font-family: "Slabo", Arial, Sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 28px;
+    margin-bottom: 10px;
+}
+
+.post .article .title a {
+    color:#000;
+}
+
+.post .article .date {
+    color:#747474;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.post .article .thumb {
+    margin-bottom: 20px;
+}
+
+.post .article .thumb img {
+    vertical-align: top;
+    width: 100%;
+}
+
+.post .article .extract {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.post .article .continue {
+    color:#BB1F35;
+    font-weight: bold;
+}
