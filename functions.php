@@ -2,11 +2,14 @@
 
 function conexion($bd_config){
     try {
-        $conexion = new PDO('mysql:host=localhost;dbname='.$bd_config['basedatos'], $bd_config['usuario'], $bd_config['pass'], array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $conexion = new PDO('mysql:host=localhost;port=3307;dbname='.$bd_config['basedatos'], $bd_config['usuario'], $bd_config['pass'], array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
         return $conexion;
 	} catch (PDOException $e) {
+        echo 'Falló la conexión: ' . $e->getMessage();
         return false;
-    }   
+    }
+
+
 }
 
 function limpiarDatos($datos){
@@ -31,7 +34,7 @@ function numero_paginas($post_por_pagina, $conexion){
     $total_post = $conexion->prepare('SELECT FOUND_ROWS() as total');
     $total_post->execute();
     $total_post = $total_post->fetch()['total'];
-    
+
     $numero_paginas = ceil($total_post / $post_por_pagina);
     return $numero_paginas;
 }
@@ -53,7 +56,7 @@ function fecha($fecha){
     $dia = date('d', $timestamp);
     $mes = date('m', $timestamp) - 1;
     $year = date('Y', $timestamp);
-    
+
     $fecha = "$dia de " . $meses[$mes] . " del $year";
     return $fecha;
 }

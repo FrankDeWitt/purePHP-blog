@@ -14,4 +14,3 @@ if (!$posts) {
 require 'views/index.view.php';
 
 ?>
-
